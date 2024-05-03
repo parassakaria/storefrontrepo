@@ -35,8 +35,13 @@ const getConfigForEnvironment = async (environment) => {
   let configJSON = window.sessionStorage.getItem(`config:${env}`);
   if (!configJSON) {
     configJSON = await fetch(buildConfigURL(env)).then((res) => res.text());
+    console.log('123');
+    console.log(configJSON);
     window.sessionStorage.setItem(`config:${env}`, configJSON);
   }
+
+  console.log('1235');
+  console.log(configJSON);
   return configJSON;
 };
 
